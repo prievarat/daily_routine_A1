@@ -472,226 +472,227 @@
         // This is the "database" of answers
         // It maps the Job Name to an array of answers.
         // The index of the answer corresponds to the index of the question in ALL_QUESTIONS.
+        // --- THIS ENTIRE OBJECT has been rewritten and re-indexed ---
         const ANSWERS_DB = {
             "Doctor": [
-                "I get up very early, around 6 AM.", // 1. Get up?
-                "Yes, I wear a white coat.", // 2. Uniform?
-                "Yes, I work inside a big building.", // 3. Inside?
-                "No, I am always inside.", // 4. Outside?
-                "Yes, I work with many people every day.", // 5. People?
-                "No, I do not work with animals.", // 6. Animals?
-                "No, I do not work with food.", // 7. Food?
-                "Sometimes, yes. My job is 24 hours.", // 8. Night?
-                "Yes, I do.", // 9. Hospital?
-                "No, I do not.", // 10. School?
-                "Yes, I help people who are sick.", // 11. Help people?
-                "Yes, I use a computer for notes.", // 12. Computer?
-                "It can be. Sometimes people are very sick.", // 13. Dangerous?
-                "Sometimes I ride in an ambulance.", // 14. Vehicle?
-                "No, my work is very clean.", // 15. Dirty?
-                "Yes, I work with children and adults.", // 16. Children?
-                "No, I help people get better.", // 17. Make things?
-                "No, I stay in one building.", // 18. Travel?
-                "I often finish work very late.", // 19. Finish?
-                "Yes, I love helping people." // 20. Like job?
+                "I get up very early, around 6 AM.", // 0. Get up? (T1)
+                "Yes, I work inside almost all day.", // 1. Inside? (T1)
+                "No, I am almost always inside.", // 2. Outside? (T1)
+                "Yes, I work with many people every day.", // 3. People? (T1)
+                "Sometimes, yes. My job can be 24 hours.", // 4. Night? (T1)
+                "Yes, I use a computer quite a lot.", // 5. Computer? (T1)
+                "No, my work is usually very clean.", // 6. Dirty? (T1)
+                "I often finish work very late.", // 7. Finish? (T1)
+                "Yes, I find it very rewarding.", // 8. Like job? (T1)
+                "Yes, I wear a special white coat.", // 9. Uniform? (T2)
+                "No, I do not work with animals.", // 10. Animals? (T2)
+                "No, I do not work with food.", // 11. Food? (T2)
+                "Yes, I help people who are sick.", // 12. Help people? (T2)
+                "It can be. Sometimes people are very sick.", // 13. Dangerous? (T2)
+                "Yes, I work with children and adults.", // 14. Children? (T2)
+                "No, I help people get better.", // 15. Make things? (T2)
+                "No, I stay in one building.", // 16. Travel? (T2)
+                "Yes, I work in a hospital.", // 17. Hospital? (T3)
+                "No, I do not.", // 18. School? (T3)
+                "Sometimes I ride in an ambulance, but I don't drive." // 19. Vehicle? (T3)
             ],
             "Firefighter": [
-                "I get up early, but sometimes I am awake all night.", // 1. Get up?
-                "Yes, I wear a very heavy uniform and a helmet.", // 2. Uniform?
-                "Sometimes. I wait inside a building.", // 3. Inside?
-                "Yes, I work outside a lot, in all weather.", // 4. Outside?
-                "Yes, I work with a team.", // 5. People?
-                "Sometimes I rescue cats from trees!", // 6. Animals?
-                "No, but I cook dinner with my team at the station.", // 7. Food?
-                "Yes, I often work at night.", // 8. Night?
-                "No, but I take people to the hospital.", // 9. Hospital?
-                "No, but I visit schools to talk about safety.", // 10. School?
-                "Yes, I help people who are in trouble.", // 11. Help people?
-                "No, not very much.", // 12. Computer?
-                "Yes, my job is very dangerous.", // 13. Dangerous?
-                "Yes, I use a very big, red truck with a ladder.", // 14. Vehicle?
-                "Yes, I get very dirty with smoke and ash.", // 15. Dirty?
-                "Sometimes I rescue children.", // 16. Children?
-                "No, I stop bad things from happening.", // 17. Make things?
-                "No, I only work in my city.", // 18. Travel?
-                "My work is never really finished!", // 19. Finish?
-                "Yes, it is a very important job." // 20. Like job?
+                "My schedule is not regular. Sometimes I am awake all night.", // 0. Get up? (T1)
+                "Sometimes. I wait inside a building.", // 1. Inside? (T1)
+                "Yes, I work outside a lot, in all weather.", // 2. Outside? (T1)
+                "Yes, I work very closely with a team.", // 3. People? (T1)
+                "Yes, I often work at night.", // 4. Night? (T1)
+                "No, not very much.", // 5. Computer? (T1)
+                "Yes, I get very dirty.", // 6. Dirty? (T1)
+                "My work is never really finished!", // 7. Finish? (T1)
+                "Yes, it is a very important job.", // 8. Like job? (T1)
+                "Yes, I wear a very heavy uniform and a helmet.", // 9. Uniform? (T2)
+                "Sometimes I rescue cats from trees!", // 10. Animals? (T2)
+                "No, but I cook dinner with my team at the station.", // 11. Food? (T2)
+                "Yes, I help people who are in trouble.", // 12. Help people? (T2)
+                "Yes, my job is very dangerous.", // 13. Dangerous? (T2)
+                "Sometimes I rescue children.", // 14. Children? (T2)
+                "No, I stop bad things from happening.", // 15. Make things? (T2)
+                "No, I only work in my city.", // 16. Travel? (T2)
+                "No, but I take people to the hospital.", // 17. Hospital? (T3)
+                "No, but I visit schools to talk about safety.", // 18. School? (T3)
+                "Yes, I use a very big, red truck with a ladder." // 19. Vehicle? (T3)
             ],
             "Farmer": [
-                "I get up very, very early, before the sun.", // 1. Get up?
-                "No, I wear old clothes and boots.", // 2. Uniform?
-                "Sometimes, but I am outside most of the day.", // 3. Inside?
-                "Yes, I work outside in the sun and rain.", // 4. Outside?
-                "Not many. I am usually alone.", // 5. People?
-                "Yes, I work with many animals, like cows and chickens.", // 6. Animals?
-                "Yes, I grow food for people to eat, like vegetables.", // 7. Food?
-                "No, I finish work when the sun goes down.", // 8. Night?
-                "No, I do not.", // 9. Hospital?
-                "No, I do not.", // 10. School?
-                "Yes, I help people by giving them food.", // 11. Help people?
-                "Sometimes, to check the weather.", // 12. Computer?
-                "No, but the work is very hard.", // 13. Dangerous?
-                "Yes, I use a big green tractor.", // 14. Vehicle?
-                "Yes, I get very dirty with mud.", // 15. Dirty?
-                "No, I work with plants and animals.", // 16. Children?
-                "I help make food grow from the ground.", // 17. Make things?
-                "No, I stay on my land.", // 18. Travel?
-                "I finish in the evening, when it is dark.", // 19. Finish?
-                "Yes, I love working with nature." // 20. Like job?
+                "I get up very, very early, before the sun.", // 0. Get up? (T1)
+                "Sometimes, but I am outside most of the day.", // 1. Inside? (T1)
+                "Yes, I work outside in the sun and rain.", // 2. Outside? (T1)
+                "Not many. I am usually alone.", // 3. People? (T1)
+                "No, I finish work when the sun goes down.", // 4. Night? (T1)
+                "Sometimes, to check the weather.", // 5. Computer? (T1)
+                "Yes, I get very dirty with mud.", // 6. Dirty? (T1)
+                "I finish in the evening, when it is dark.", // 7. Finish? (T1)
+                "Yes, I love working with nature.", // 8. Like job? (T1)
+                "No, I wear old clothes and boots.", // 9. Uniform? (T2)
+                "Yes, I work with many animals, like cows and chickens.", // 10. Animals? (T2)
+                "Yes, I grow food for people to eat.", // 11. Food? (T2)
+                "Yes, I help people by giving them food.", // 12. Help people? (T2)
+                "No, but the work is very hard.", // 13. Dangerous? (T2)
+                "No, I work with plants and animals.", // 14. Children? (T2)
+                "I help make food grow from the ground.", // 15. Make things? (T2)
+                "No, I stay on my land.", // 16. Travel? (T2)
+                "No, I do not.", // 17. Hospital? (T3)
+                "No, I do not.", // 18. School? (T3)
+                "Yes, I use a big green tractor." // 19. Vehicle? (T3)
             ],
             "Teacher": [
-                "I get up at 7 AM to go to work.", // 1. Get up?
-                "No, I just wear nice, clean clothes.", // 2. Uniform?
-                "Yes, I work inside a big room.", // 3. Inside?
-                "Only sometimes, for a break.", // 4. Outside?
-                "Yes, I work with many people every day.", // 5. People?
-                "No, but sometimes we have a class pet, like a hamster.", // 6. Animals?
-                "No, but I eat lunch with my students.", // 7. Food?
-                "No, I only work during the day.", // 8. Night?
-                "No, I do not.", // 9. Hospital?
-                "Yes, I work in a school.", // 10. School?
-                "Yes, I help people learn new things.", // 11. Help people?
-                "Yes, I use a computer and a big white board.", // 12. Computer?
-                "No, my job is very safe.", // 13. Dangerous?
-                "No, I do not use a vehicle.", // 14. Vehicle?
-                "Sometimes I get paint or glue on my hands!", // 15. Dirty?
-                "Yes, I work with children all day.", // 16. Children?
-                "No, I help children make things.", // 17. Make things?
-                "No, I stay in one building.", // 18. Travel?
-                "I finish in the afternoon, around 4 PM.", // 19. Finish?
-                "Yes, I love my job very much!" // 20. Like job?
+                "I get up at 7 AM to go to work.", // 0. Get up? (T1)
+                "Yes, I work inside a big room.", // 1. Inside? (T1)
+                "Only sometimes, for a break.", // 2. Outside? (T1)
+                "Yes, I work with many people every day.", // 3. People? (T1)
+                "No, I only work during the day.", // 4. Night? (T1)
+                "Yes, I use a computer and a big white board.", // 5. Computer? (T1)
+                "Sometimes I get paint or glue on my hands!", // 6. Dirty? (T1)
+                "I finish in the afternoon, around 4 PM.", // 7. Finish? (T1)
+                "Yes, I love my job very much!", // 8. Like job? (T1)
+                "No, I just wear nice, clean clothes.", // 9. Uniform? (T2)
+                "No, but sometimes we have a class pet, like a hamster.", // 10. Animals? (T2)
+                "No, but I eat lunch with many people.", // 11. Food? (T2)
+                "Yes, I help people learn new things.", // 12. Help people? (T2)
+                "No, my job is very safe.", // 13. Dangerous? (T2)
+                "Yes, I work with children all day.", // 14. Children? (T2)
+                "No, I help children make things.", // 15. Make things? (T2)
+                "No, I stay in one building.", // 16. Travel? (T2)
+                "No, I do not.", // 17. Hospital? (T3)
+                "Yes, I work in a school.", // 18. School? (T3)
+                "No, I do not use a vehicle." // 19. Vehicle? (T3)
             ],
             "Chef": [
-                "I get up in the afternoon, because I work late.", // 1. Get up?
-                "Yes, I wear a tall white hat and a white jacket.", // 2. Uniform?
-                "Yes, I work inside a very hot room.", // 3. Inside?
-                "No, I am always inside.", // 4. Outside?
-                "Yes, I work with a team of other cooks.", // 5. People?
-                "No, but I cook meat and fish.", // 6. Animals?
-                "Yes, I work with food all day!", // 7. Food?
-                "Yes, I work every night, even on weekends.", // 8. Night?
-                "No, I do not.", // 9. Hospital?
-                "No, I do not.", // 10. School?
-                "Yes, I help people by making them happy with good food.", // 11. Help people?
-                "No, not very much. I use my hands and knives.", // 12. Computer?
-                "It can be! Fire and knives are dangerous.", // 13. Dangerous?
-                "No, I do not.", // 14. Vehicle?
-                "Yes, I get dirty with flour and sauces.", // 15. Dirty?
-                "No, I work with adults.", // 16. Children?
-                "Yes, I make delicious meals.", // 17. Make things?
-                "No, I stay in my kitchen.", // 18. Travel?
-                "I finish very late at night, around 11 PM.", // 19. Finish?
-                "Yes, I love to cook!" // 20. Like job?
+                "I get up in the afternoon.", // 0. Get up? (T1)
+                "Yes, I work inside a very hot room.", // 1. Inside? (T1)
+                "No, I am always inside.", // 2. Outside? (T1)
+                "Yes, I work with a team.", // 3. People? (T1)
+                "Yes, I work every night, even on weekends.", // 4. Night? (T1)
+                "No, not very much.", // 5. Computer? (T1)
+                "Yes, I get dirty with sauces and flour.", // 6. Dirty? (T1)
+                "I finish very late at night, around 11 PM.", // 7. Finish? (T1)
+                "Yes, I love to cook!", // 8. Like job? (T1)
+                "Yes, I wear a tall white hat and a white jacket.", // 9. Uniform? (T2)
+                "No, but I cook meat and fish.", // 10. Animals? (T2)
+                "Yes, I work with food all day!", // 11. Food? (T2)
+                "Yes, I help people by making them happy with good food.", // 12. Help people? (T2)
+                "It can be! Fire and knives are dangerous.", // 13. Dangerous? (T2)
+                "No, I work with adults.", // 14. Children? (T2)
+                "Yes, I make delicious meals.", // 15. Make things? (T2)
+                "No, I stay in my kitchen.", // 16. Travel? (T2)
+                "No, I do not.", // 17. Hospital? (T3)
+                "No, I do not.", // 18. School? (T3)
+                "No, I do not." // 19. Vehicle? (T3)
             ],
             "Pilot": [
-                "My get up time is different every day. Sometimes day, sometimes night.", // 1. Get up?
-                "Yes, I wear a blue uniform with a hat and gold wings.", // 2. Uniform?
-                "Yes, I work inside a small room, but it moves!", // 3. Inside?
-                "When I work, I am very high in the sky.", // 4. Outside?
-                "Yes, I work with one other person, my co-pilot.", // 5. People?
-                "No, I do not work with animals.", // 6. Animals?
-                "No, but people bring me coffee.", // 7. Food?
-                "Yes, I often work at night.", // 8. Night?
-                "No, I do not.", // 9. Hospital?
-                "No, I do not.", // 10. School?
-                "Yes, I help people get to new places.", // 11. Help people?
-                "Yes, I use many computers and buttons.", // 12. Computer?
-                "No, it is very safe, but I must be careful.", // 13. Dangerous?
-                "Yes, I use a very big, white vehicle with wings.", // 14. Vehicle?
-                "No, my work is very clean.", // 15. Dirty?
-                "No, I work with adults.", // 16. Children?
-                "No, I fly.", // 17. Make things?
-                "Yes, I travel all over the world for my work.", // 18. Travel?
-                "My finish time is different every day.", // 19. Finish?
-                "Yes, I love to see the world from above." // 20. Like job?
+                "My get up time is different every day.", // 0. Get up? (T1)
+                "Yes, I work inside a small room.", // 1. Inside? (T1)
+                "No, I am always inside... but I move fast!", // 2. Outside? (T1)
+                "Yes, I work with one other person.", // 3. People? (T1)
+                "Yes, I often work at night.", // 4. Night? (T1)
+                "Yes, I use many computers and buttons.", // 5. Computer? (T1)
+                "No, my work is very clean.", // 6. Dirty? (T1)
+                "My finish time is different every day.", // 7. Finish? (T1)
+                "Yes, I love to see the world.", // 8. Like job? (T1)
+                "Yes, I wear a smart uniform with a hat.", // 9. Uniform? (T2)
+                "No, I do not work with animals.", // 10. Animals? (T2)
+                "No, but people bring me coffee.", // 11. Food? (T2)
+                "Yes, I help people get to new places.", // 12. Help people? (T2)
+                "No, it is very safe, but I must be careful.", // 13. Dangerous? (T2)
+                "No, I work with adults.", // 14. Children? (T2)
+                "No, I do not make things.", // 15. Make things? (T2)
+                "Yes, I travel all over the world for my work.", // 16. Travel? (T2)
+                "No, I do not.", // 17. Hospital? (T3)
+                "No, I do not.", // 18. School? (T3)
+                "Yes, I use a very big, white vehicle with wings." // 19. Vehicle? (T3)
             ],
             "Police Officer": [
-                "My get up time changes. Sometimes day, sometimes night.", // 1. Get up?
-                "Yes, I wear a blue uniform and a heavy belt.", // 2. Uniform?
-                "Sometimes I am inside, at the station.", // 3. Inside?
-                "Yes, I am outside a lot, walking or driving.", // 4. Outside?
-                "Yes, I work with many people and a partner.", // 5. People?
-                "Sometimes, I work with a police dog.", // 6. Animals?
-                "No, I do not work with food.", // 7. Food?
-                "Yes, I often work at night.", // 8. Night?
-                "No, but I sometimes go there.", // 9. Hospital?
-                "No, but I visit schools to talk to students.", // 10. School?
-                "Yes, my job is to help and protect people.", // 11. Help people?
-                "Yes, I use a computer in my car.", // 12. Computer?
-                "Yes, my job can be very dangerous.", // 13. Dangerous?
-                "Yes, I use a special car with red and blue lights.", // 14. Vehicle?
-                "No, I try to stay clean and neat.", // 15. Dirty?
-                "Yes, I help children who are lost.", // 16. Children?
-                "No, I write reports.", // 17. Make things?
-                "No, I only work in my city.", // 18. Travel?
-                "I finish after 8 or 10 hours.", // 19. Finish?
-                "Yes, it is a difficult but good job." // 20. Like job?
+                "My get up time changes. Sometimes day, sometimes night.", // 0. Get up? (T1)
+                "Sometimes I am inside, at a desk.", // 1. Inside? (T1)
+                "Yes, I am outside a lot, walking or driving.", // 2. Outside? (T1)
+                "Yes, I work with many people and a partner.", // 3. People? (T1)
+                "Yes, I often work at night.", // 4. Night? (T1)
+                "Yes, I use a computer.", // 5. Computer? (T1)
+                "No, I try to stay clean and neat.", // 6. Dirty? (T1)
+                "I finish after 8 or 10 hours.", // 7. Finish? (T1)
+                "Yes, it is a difficult but good job.", // 8. Like job? (T1)
+                "Yes, I wear a blue uniform and a heavy belt.", // 9. Uniform? (T2)
+                "Sometimes, I work with a special dog.", // 10. Animals? (T2)
+                "No, I do not work with food.", // 11. Food? (T2)
+                "Yes, my job is to help and protect people.", // 12. Help people? (T2)
+                "Yes, my job can be very dangerous.", // 13. Dangerous? (T2)
+                "Yes, I help children who are lost.", // 14. Children? (T2)
+                "No, I write reports.", // 15. Make things? (T2)
+                "No, I only work in my city.", // 16. Travel? (T2)
+                "No, but I sometimes go there.", // 17. Hospital? (T3)
+                "No, but I visit schools to talk to students.", // 18. School? (T3)
+                "Yes, I use a special car with red and blue lights." // 19. Vehicle? (T3)
             ],
             "Artist": [
-                "I usually get up late, around 10 AM.", // 1. Get up?
-                "No, I wear comfortable, old clothes.", // 2. Uniform?
-                "Yes, I work inside a room with big windows.", // 3. Inside?
-                "Sometimes I go outside to get ideas.", // 4. Outside?
-                "No, I work alone most of the time.", // 5. People?
-                "No, but I like to draw animals.", // 6. Animals?
-                "No, but I drink a lot of coffee!", // 7. Food?
-                "Yes, I often work very late at night.", // 8. Night?
-                "No, I do not.", // 9. Hospital?
-                "No, I do not.", // 10. School?
-                "I help people by making beautiful things to look at.", // 11. Help people?
-                "Sometimes I use a computer, sometimes just my hands.", // 12. Computer?
-                "No, my job is very safe.", // 13. Dangerous?
-                "No, I do not use a vehicle.", // 14. Vehicle?
-                "Yes! I get very dirty with paint.", // 15. Dirty?
-                "No, I do not work with children.", // 16. Children?
-                "Yes, I make pictures and sculptures.", // 17. Make things?
-                "No, I stay in my studio.", // 18. Travel?
-                "I finish when I am tired, maybe 2 AM!", // 19. Finish?
-                "Yes, I love my job!" // 20. Like job?
+                "I usually get up late, around 10 AM.", // 0. Get up? (T1)
+                "Yes, I work inside a room with big windows.", // 1. Inside? (T1)
+                "Sometimes I go outside to get ideas.", // 2. Outside? (T1)
+                "No, I work alone most of the time.", // 3. People? (T1)
+                "Yes, I often work very late at night.", // 4. Night? (T1)
+                "Sometimes I use a computer, sometimes just my hands.", // 5. Computer? (T1)
+                "Yes! I get very dirty.", // 6. Dirty? (T1)
+                "I finish when I am tired, maybe 2 AM!", // 7. Finish? (T1)
+                "Yes, I love my job!", // 8. Like job? (T1)
+                "No, I wear comfortable, old clothes.", // 9. Uniform? (T2)
+                "No, but I like to draw animals.", // 10. Animals? (T2)
+                "No, but I drink a lot of coffee!", // 11. Food? (T2)
+                "I help people by making beautiful things to look at.", // 12. Help people? (T2)
+                "No, my job is very safe.", // 13. Dangerous? (T2)
+                "No, I do not work with children.", // 14. Children? (T2)
+                "Yes, I make pictures and sculptures.", // 15. Make things? (T2)
+                "No, I stay in my studio.", // 16. Travel? (T2)
+                "No, I do not.", // 17. Hospital? (T3)
+                "No, I do not.", // 18. School? (T3)
+                "No, I do not use a vehicle." // 19. Vehicle? (T3)
             ],
             "Scientist": [
-                "I get up at 8 AM.", // 1. Get up?
-                "Yes, I wear a white lab coat and safety glasses.", // 2. Uniform?
-                "Yes, I work inside a laboratory.", // 3. Inside?
-                "No, I am always inside.", // 4. Outside?
-                "Yes, I work with a team of other smart people.", // 5. People?
-                "Sometimes, I work with mice or plants.", // 6. Animals?
-                "No, I do not work with food.", // 7. Food?
-                "Sometimes, if an experiment takes a long time.", // 8. Night?
-                "No, but my work can help hospitals.", // 9. Hospital?
-                "No, but I work at a university.", // 10. School?
-                "Yes, I help people by finding new information.", // 11. Help people?
-                "Yes, I use a computer all day.", // 12. Computer?
-                "Sometimes, I work with chemicals, so I must be careful.", // 13. Dangerous?
-                "No, I do not.", // 14. Vehicle?
-                "No, my work is very clean and careful.", // 15. Dirty?
-                "No, I work with adults.", // 16. Children?
-                "I make new ideas and new medicines.", // 17. Make things?
-                "Sometimes I travel to talk about my work.", // 18. Travel?
-                "I finish at 6 PM, usually.", // 19. Finish?
-                "Yes, I love to discover new things." // 20. Like job?
+                "I get up at 8 AM.", // 0. Get up? (T1)
+                "Yes, I work inside a laboratory.", // 1. Inside? (T1)
+                "No, I am always inside.", // 2. Outside? (T1)
+                "Yes, I work with a team of other smart people.", // 3. People? (T1)
+                "Sometimes, if an experiment takes a long time.", // 4. Night? (T1)
+                "Yes, I use a computer all day.", // 5. Computer? (T1)
+                "No, my work is very clean and careful.", // 6. Dirty? (T1)
+                "I finish at 6 PM, usually.", // 7. Finish? (T1)
+                "Yes, I love to discover new things.", // 8. Like job? (T1)
+                "Yes, I wear a white lab coat and safety glasses.", // 9. Uniform? (T2)
+                "Sometimes, I work with mice or plants.", // 10. Animals? (T2)
+                "No, I do not work with food.", // 11. Food? (T2)
+                "Yes, I help people by finding new information.", // 12. Help people? (T2)
+                "Sometimes, I work with chemicals, so I must be careful.", // 13. Dangerous? (T2)
+                "No, I work with adults.", // 14. Children? (T2)
+                "I make new ideas and new medicines.", // 15. Make things? (T2)
+                "Sometimes I travel to talk about my work.", // 16. Travel? (T2)
+                "No, but my work can help hospitals.", // 17. Hospital? (T3)
+                "No, but I work at a university.", // 18. School? (T3)
+                "No, I do not." // 19. Vehicle? (T3)
             ],
             "Bus Driver": [
-                "I get up very early, around 4 AM.", // 1. Get up?
-                "Yes, I wear a blue shirt and trousers.", // 2. Uniform?
-                "Yes, I work inside my vehicle.", // 3. Inside?
-                "I can see outside all day!", // 4. Outside?
-                "Yes, I say 'hello' to many people all day.", // 5. People?
-                "No, I do not work with animals.", // 6. Animals?
-                "No, I do not work with food.", // 7. Food?
-                "Sometimes I drive the night bus.", // 8. Night?
-                "No, I do not.", // 9. Hospital?
-                "Yes, I take many children to school in the morning.", // 10. School?
-                "Yes, I help people get to work, school, and home.", // 11. Help people?
-                "No, I use a steering wheel.", // 12. Computer?
-                "No, I am a very careful driver.", // 13. Dangerous?
-                "Yes, I use a very big, long vehicle.", // 14. Vehicle?
-                "No, my work is clean.", // 15. Dirty?
-                "Yes, I drive children to school.", // 16. Children?
-                "No, I do not make things.", // 17. Make things?
-                "Yes, I travel all around the city, all day.", // 18. Travel?
-                "I finish in the afternoon.", // 19. Finish?
-                "Yes, I like my job." // 20. Like job?
+                "I get up very early, around 4 AM.", // 0. Get up? (T1)
+                "Yes, I work inside all day.", // 1. Inside? (T1)
+                "No, but I can see outside all day!", // 2. Outside? (T1)
+                "Yes, I say 'hello' to many people all day.", // 3. People? (T1)
+                "Sometimes I drive the night bus.", // 4. Night? (T1)
+                "No, I use a steering wheel.", // 5. Computer? (T1)
+                "No, my work is clean.", // 6. Dirty? (T1)
+                "I finish in the afternoon.", // 7. Finish? (T1)
+                "Yes, I like my job.", // 8. Like job? (T1)
+                "Yes, I wear a blue shirt and trousers.", // 9. Uniform? (T2)
+                "No, I do not work with animals.", // 10. Animals? (T2)
+                "No, I do not work with food.", // 11. Food? (T2)
+                "Yes, I help people get to work, school, and home.", // 12. Help people? (T2)
+                "No, I am a very careful driver.", // 13. Dangerous? (T2)
+                "Yes, I see many children.", // 14. Children? (T2)
+                "No, I do not make things.", // 15. Make things? (T2)
+                "Yes, I travel all around the city, all day.", // 16. Travel? (T2)
+                "No, I do not.", // 17. Hospital? (T3)
+                "Yes, I take many people to school.", // 18. School? (T3)
+                "Yes, I use a very big, long vehicle." // 19. Vehicle? (T3)
             ]
         };
         
